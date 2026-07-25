@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "skill_name": "reels-script-writer",
+  "results": [
+    {
+      "case_id": "full-script-with-goal-cta",
+      "expectations": [
+        { "expectation_id": "deliver-one-script", "passed": true },
+        { "expectation_id": "preserve-decisions", "passed": true },
+        { "expectation_id": "no-fabricated-results", "passed": true },
+        { "expectation_id": "goal-fit-cta", "passed": true },
+        { "expectation_id": "loop-closure", "passed": true }
+      ]
+    },
+    {
+      "case_id": "standalone-safe-fallback",
+      "expectations": [
+        { "expectation_id": "standalone-decisions", "passed": true },
+        { "expectation_id": "one-script-only", "passed": true },
+        { "expectation_id": "no-client-outcome-fabrication", "passed": true },
+        { "expectation_id": "goal-fit-cta", "passed": true },
+        { "expectation_id": "no-first-person-invention", "passed": true }
+      ]
+    },
+    {
+      "case_id": "story-and-claim-boundaries",
+      "expectations": [
+        { "expectation_id": "mark-unverified-claim", "passed": true },
+        { "expectation_id": "source-gated-claim", "passed": true },
+        { "expectation_id": "no-first-person-invention", "passed": true },
+        { "expectation_id": "safe-reframe", "passed": true },
+        { "expectation_id": "goal-fit-cta", "passed": true }
+      ]
+    }
+  ]
+}

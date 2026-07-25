@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "skill_name": "reels-script-writer",
+  "cases": [
+    { "id": "trigger-01", "prompt": "案例 01", "should_trigger": true },
+    { "id": "trigger-02", "prompt": "案例 02", "should_trigger": true },
+    { "id": "trigger-03", "prompt": "案例 03", "should_trigger": true },
+    { "id": "trigger-04", "prompt": "案例 04", "should_trigger": true },
+    { "id": "trigger-05", "prompt": "案例 05", "should_trigger": true },
+    { "id": "trigger-06", "prompt": "案例 06", "should_trigger": true },
+    { "id": "trigger-07", "prompt": "案例 07", "should_trigger": true },
+    { "id": "trigger-08", "prompt": "案例 08", "should_trigger": true },
+    { "id": "trigger-09", "prompt": "案例 09", "should_trigger": true },
+    { "id": "trigger-10", "prompt": "案例 10", "should_trigger": true },
+    { "id": "trigger-11", "prompt": "案例 11", "should_trigger": true },
+    { "id": "trigger-12", "prompt": "案例 12", "should_trigger": true },
+    { "id": "trigger-13", "prompt": "案例 13", "should_trigger": true },
+    { "id": "trigger-14", "prompt": "案例 14", "should_trigger": true },
+    { "id": "trigger-15", "prompt": "案例 15", "should_trigger": true },
+    { "id": "trigger-16", "prompt": "案例 16", "should_trigger": true },
+    { "id": "trigger-17", "prompt": "案例 17", "should_trigger": true },
+    { "id": "trigger-18", "prompt": "案例 18", "should_trigger": true },
+    { "id": "trigger-19", "prompt": "案例 19", "should_trigger": true },
+    { "id": "trigger-20", "prompt": "案例 20", "should_trigger": true }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "skill_name": "reels-script-writer",
+  "cases": [
+    { "id": "trigger-01", "prompt": "幫我把這個主題寫成一支 Reels 腳本", "should_trigger": true },
+    { "id": "trigger-02", "prompt": "我有切角和 Hook，請寫一版可拍的 Shorts 台詞", "should_trigger": true },
+    { "id": "trigger-03", "prompt": "把這段真實口述整理成短影音腳本和畫面提示", "should_trigger": true },
+    { "id": "trigger-04", "prompt": "請幫我做一支 TikTok 口播，結尾不要硬放 CTA", "should_trigger": true },
+    { "id": "trigger-05", "prompt": "選題、形式都定了，幫我把素材寫成 45 秒腳本", "should_trigger": true },
+    { "id": "trigger-06", "prompt": "這個 FAQ 主題怎麼拍成一支短影片？", "should_trigger": true },
+    { "id": "trigger-07", "prompt": "我的 Hook 是這句，後面主體和收尾怎麼寫？", "should_trigger": true },
+    { "id": "trigger-08", "prompt": "幫我把教學筆記變成可念的直式短片腳本", "should_trigger": true },
+    { "id": "trigger-09", "prompt": "寫一支有前後呼應的 Reels，素材只有我的公開筆記", "should_trigger": true },
+    { "id": "trigger-10", "prompt": "我缺切角和 Hook，但想先做一支短影音草稿", "should_trigger": true },
+    { "id": "trigger-11", "prompt": "同一主題給我七種內容切角", "should_trigger": false },
+    { "id": "trigger-12", "prompt": "幫我設計十六個 Hook，還要評分", "should_trigger": false },
+    { "id": "trigger-13", "prompt": "這個主題適合露臉口播還是輪播圖文？", "should_trigger": false },
+    { "id": "trigger-14", "prompt": "幫我找本週 AI 工具新聞", "should_trigger": false },
+    { "id": "trigger-15", "prompt": "把這篇英文研究完整翻譯成繁中", "should_trigger": false },
+    { "id": "trigger-16", "prompt": "請安排下個月的 YouTube 發片日曆", "should_trigger": false },
+    { "id": "trigger-17", "prompt": "我想剪掉影片前面十秒", "should_trigger": false },
+    { "id": "trigger-18", "prompt": "幫我做 IG 輪播圖的版面設計", "should_trigger": false },
+    { "id": "trigger-19", "prompt": "寫一封課程銷售 email", "should_trigger": false },
+    { "id": "trigger-20", "prompt": "幫我建立客戶提案的 Notion 資料庫", "should_trigger": false }
+  ]
+}
