@@ -240,6 +240,9 @@ check_json "${TRIGGER_EVALS_FILE:-$ROOT/evals/trigger-evals.json}" trigger
 check_results_template "$ROOT/evals/results-template.json"
 
 secret_pattern='(ghp_[A-Za-z0-9]{20,}|github[_]pat_[A-Za-z0-9_]{20,}|xox[b]-[0-9]+-[A-Za-z0-9-]{20,}|AI[z]a[0-9A-Za-z_-]{35}|rk[_]live_[A-Za-z0-9]{16,}|sk[_]live_[A-Za-z0-9]{16,}|sk[-]proj[-][A-Za-z0-9_-]{20,}|sk[-][A-Za-z0-9]{20,}|AKI[A][0-9A-Z]{16}|BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY)'
+if [ -n "${VALIDATOR_TEST_SECRET_PATTERN:-}" ]; then
+  secret_pattern="(${secret_pattern}|${VALIDATOR_TEST_SECRET_PATTERN})"
+fi
 rg -n --hidden -I -e "$secret_pattern" "$ROOT" \
   --glob '!.git/**' --glob '!tests/validate_repo.sh' >/dev/null 2>&1
 scan_status=$?

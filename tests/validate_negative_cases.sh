@@ -77,13 +77,12 @@ expect_fail misplaced-safety '功能 case full-script-with-goal-cta 缺少必要
 expect_fail inverted-safety '功能 case full-script-with-goal-cta/no-fabricated-results 的核心安全語意已改變' \
   env EVALS_FILE="$ROOT/tests/fixtures/evals-inverted-safety.json" "$ROOT/tests/validate_repo.sh"
 
-secret_case="$SANDBOX/sk-proj-secret"
+secret_case="$SANDBOX/credential-sentinel"
 copy_repo "$secret_case"
-secret_prefix="$(printf '%s' 'jorp-ks' | rev)"
-secret_suffix="$(printf 'x%.0s' {1..32})"
-synthetic_secret="${secret_prefix}-${secret_suffix}"
-printf '%s\n' "$synthetic_secret" >"$secret_case/synthetic-secret.txt"
-expect_fail sk-proj-secret '偵測到可能的憑證內容' "$secret_case/tests/validate_repo.sh"
+credential_sentinel='TEST_CREDENTIAL_''SENTINEL'
+printf '%s\n' "$credential_sentinel" >"$secret_case/synthetic-secret.txt"
+expect_fail credential-sentinel '偵測到可能的憑證內容' \
+  env VALIDATOR_TEST_SECRET_PATTERN="$credential_sentinel" "$secret_case/tests/validate_repo.sh"
 
 expect_pass scoring-all-pass \
   python3 "$ROOT/tests/score_eval_results.py" \
@@ -122,4 +121,4 @@ if [ "$FAILED" -ne 0 ]; then
   exit 1
 fi
 
-printf 'PASS: 空檔、空工作流、eval 分布／安全語意、sk-proj 與不可降低的計分門檻皆符合預期。\n'
+printf 'PASS: 空檔、空工作流、eval 分布／安全語意、憑證掃描與不可降低的計分門檻皆符合預期。\n'
