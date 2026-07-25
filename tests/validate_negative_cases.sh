@@ -79,7 +79,9 @@ expect_fail inverted-safety '功能 case full-script-with-goal-cta/no-fabricated
 
 secret_case="$SANDBOX/sk-proj-secret"
 copy_repo "$secret_case"
-synthetic_secret='sk''-proj-abcdefghijklmnopqrstuvwxyz0123456789'
+secret_prefix="$(printf '%s' 'jorp-ks' | rev)"
+secret_suffix="$(printf 'x%.0s' {1..32})"
+synthetic_secret="${secret_prefix}-${secret_suffix}"
 printf '%s\n' "$synthetic_secret" >"$secret_case/synthetic-secret.txt"
 expect_fail sk-proj-secret '偵測到可能的憑證內容' "$secret_case/tests/validate_repo.sh"
 
