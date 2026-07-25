@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 from typing import Any
@@ -17,6 +18,9 @@ from typing import Any
 
 class ScoreInputError(ValueError):
     """Raised when eval metadata or result data is incomplete."""
+
+
+MIN_QUALITY_THRESHOLD = 0.90
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -113,11 +117,22 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--evals", type=Path, required=True)
     parser.add_argument("--results", type=Path, required=True)
-    parser.add_argument("--quality-threshold", type=float, default=0.90)
+    parser.add_argument(
+        "--quality-threshold",
+        type=float,
+        default=MIN_QUALITY_THRESHOLD,
+        help="Quality gate from 0.90 to 1.00; the release contract cannot be lowered.",
+    )
     args = parser.parse_args()
 
-    if not 0 <= args.quality_threshold <= 1:
-        print("ERROR: quality threshold must be between 0 and 1", file=sys.stderr)
+    if not math.isfinite(args.quality_threshold):
+        print("ERROR: quality threshold must be a finite number", file=sys.stderr)
+        return 2
+    if args.quality_threshold < MIN_QUALITY_THRESHOLD:
+        print("ERROR: quality threshold cannot be lower than 0.90", file=sys.stderr)
+        return 2
+    if args.quality_threshold > 1:
+        print("ERROR: quality threshold cannot be higher than 1.00", file=sys.stderr)
         return 2
 
     try:

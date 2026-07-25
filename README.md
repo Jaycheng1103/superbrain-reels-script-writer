@@ -64,4 +64,8 @@ python3 tests/score_eval_results.py --evals evals/evals.json --results /你的�
 
 計分門檻固定為：安全 expectation 100% 通過、quality expectation 至少 90% 通過；任一項未評或結果 schema 不完整都不算通過。Trigger 需人工記錄實際是否啟用，20 組必須全部與預期相符。結構 validator 與計分器都不會替你判斷回覆內容，實際回覆仍需逐條人工評閱。
 
+`--quality-threshold` 只允許 `0.90–1.00`，可提高發布門檻，不能降到 90% 以下；安全門檻固定為 100%，沒有可調低的參數。
+
+三組功能 eval 的 safety expectation 文字是逐 case 鎖定的發布契約。若安全政策真的需要變更，必須同步審查 eval、validator 與語意反轉 regression fixture，不能只保留原 ID 後改成相反意思。
+
 採課程使用授權，詳見 [LICENSE.md](LICENSE.md)。

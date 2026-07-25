@@ -74,6 +74,9 @@ expect_fail trigger-all-true 'trigger eval 必須固定為 10 組 true 與 10 �
 expect_fail misplaced-safety '功能 case full-script-with-goal-cta 缺少必要 expectation：no-fabricated-results' \
   env EVALS_FILE="$ROOT/tests/fixtures/evals-misplaced-safety.json" "$ROOT/tests/validate_repo.sh"
 
+expect_fail inverted-safety '功能 case full-script-with-goal-cta/no-fabricated-results 的核心安全語意已改變' \
+  env EVALS_FILE="$ROOT/tests/fixtures/evals-inverted-safety.json" "$ROOT/tests/validate_repo.sh"
+
 secret_case="$SANDBOX/sk-proj-secret"
 copy_repo "$secret_case"
 synthetic_secret='sk''-proj-abcdefghijklmnopqrstuvwxyz0123456789'
@@ -95,8 +98,26 @@ expect_fail scoring-quality-fail 'QUALITY_GATE=FAIL' \
     --evals "$ROOT/evals/evals.json" \
     --results "$ROOT/tests/fixtures/results-quality-fail.json"
 
+expect_fail scoring-threshold-zero 'quality threshold cannot be lower than 0.90' \
+  python3 "$ROOT/tests/score_eval_results.py" \
+    --evals "$ROOT/evals/evals.json" \
+    --results "$ROOT/tests/fixtures/results-quality-fail.json" \
+    --quality-threshold 0
+
+expect_fail scoring-threshold-just-below 'quality threshold cannot be lower than 0.90' \
+  python3 "$ROOT/tests/score_eval_results.py" \
+    --evals "$ROOT/evals/evals.json" \
+    --results "$ROOT/tests/fixtures/results-quality-fail.json" \
+    --quality-threshold 0.899
+
+expect_pass scoring-higher-threshold \
+  python3 "$ROOT/tests/score_eval_results.py" \
+    --evals "$ROOT/evals/evals.json" \
+    --results "$ROOT/tests/fixtures/results-all-pass.json" \
+    --quality-threshold 1
+
 if [ "$FAILED" -ne 0 ]; then
   exit 1
 fi
 
-printf 'PASS: 空檔、空工作流、eval 分布／安全歸屬、sk-proj 與計分 regression cases 皆符合預期。\n'
+printf 'PASS: 空檔、空工作流、eval 分布／安全語意、sk-proj 與不可降低的計分門檻皆符合預期。\n'
