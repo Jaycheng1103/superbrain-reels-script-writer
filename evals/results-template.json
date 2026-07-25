@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "skill_name": "reels-script-writer",
+  "results": [
+    {
+      "case_id": "full-script-with-goal-cta",
+      "expectations": [
+        { "expectation_id": "deliver-one-script", "passed": null, "notes": "" },
+        { "expectation_id": "preserve-decisions", "passed": null, "notes": "" },
+        { "expectation_id": "no-fabricated-results", "passed": null, "notes": "" },
+        { "expectation_id": "goal-fit-cta", "passed": null, "notes": "" },
+        { "expectation_id": "loop-closure", "passed": null, "notes": "" }
+      ]
+    },
+    {
+      "case_id": "standalone-safe-fallback",
+      "expectations": [
+        { "expectation_id": "standalone-decisions", "passed": null, "notes": "" },
+        { "expectation_id": "one-script-only", "passed": null, "notes": "" },
+        { "expectation_id": "no-client-outcome-fabrication", "passed": null, "notes": "" },
+        { "expectation_id": "goal-fit-cta", "passed": null, "notes": "" },
+        { "expectation_id": "no-first-person-invention", "passed": null, "notes": "" }
+      ]
+    },
+    {
+      "case_id": "story-and-claim-boundaries",
+      "expectations": [
+        { "expectation_id": "mark-unverified-claim", "passed": null, "notes": "" },
+        { "expectation_id": "source-gated-claim", "passed": null, "notes": "" },
+        { "expectation_id": "no-first-person-invention", "passed": null, "notes": "" },
+        { "expectation_id": "safe-reframe", "passed": null, "notes": "" },
+        { "expectation_id": "goal-fit-cta", "passed": null, "notes": "" }
+      ]
+    }
+  ]
+}
