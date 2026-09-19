@@ -14,23 +14,7 @@
 
 ## 安裝、更新與移除
 
-預設安裝到目前專案：
-
-```bash
-npx skills add Jaycheng1103/superbrain-reels-script-writer --skill reels-script-writer --full-depth
-npx skills update --project reels-script-writer
-npx skills remove reels-script-writer --yes
-```
-
-若要安裝成全域副本，三個指令都要加上 `--global`：
-
-```bash
-npx skills add Jaycheng1103/superbrain-reels-script-writer --skill reels-script-writer --full-depth --global
-npx skills update --global reels-script-writer
-npx skills remove --global reels-script-writer --yes
-```
-
-專案與全域安裝是兩份獨立副本，不會自動同步。手動安裝時，保留整個資料夾與 `references/`，再放到支援 `SKILL.md` 的 skill 目錄。詳細使用方式見 [如何使用.md](如何使用.md)。
+請先讀 [安裝與開始](references/安裝與開始.md) 和 [如何使用](如何使用.md)。本版保留現有課程分工，補上自然語氣、本人素材改編、時長估算與可攜性規則。
 
 ## Repo 與 skill 名稱
 
@@ -58,7 +42,6 @@ npx skills add Jaycheng1103/superbrain-reels-script-writer --list --full-depth
 ```bash
 ./tests/validate_repo.sh
 ./tests/validate_negative_cases.sh
-python3 /Users/zhengyujie/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
 python3 tests/score_eval_results.py --evals evals/evals.json --results /你的路徑/results.json
 ```
 
